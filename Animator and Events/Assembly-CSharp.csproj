@@ -61,6 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\URP\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\AnimationManager.cs" />
+    <Compile Include="Assets\Scripts\NavMeshObstacle.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\CameraManager.cs" />
+    <Compile Include="Assets\Scripts\AiControll.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

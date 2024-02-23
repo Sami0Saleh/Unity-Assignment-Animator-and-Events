@@ -1463,13 +1463,7 @@ PrefabInstance:
     - target: {fileID: 4654734320410845288, guid: baac9c70b3ea494418fa95a0f60472ce,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:RightArm'\n\tTransform
-        'mixamorig:LeftLeg'\n\tand more ...\n\tFrom animation clip 'Jumping'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4733227562414476993, guid: baac9c70b3ea494418fa95a0f60472ce,
         type: 3}
@@ -2790,6 +2784,55 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659318002}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &965627573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 965627575}
+  - component: {fileID: 965627574}
+  m_Layer: 0
+  m_Name: AnimationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &965627574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965627573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86cab54a8b0350d459143d201c544c2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  canRun: 0
+  SteepFloor: 0
+  Dead: 0
+  Jump: 0
+--- !u!4 &965627575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965627573}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -112.652336, y: 20.363949, z: 22.958178}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1143681029
 GameObject:
   m_ObjectHideFlags: 0
@@ -3105,7 +3148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373fd23a3a90c3a4c8bdaab915f688cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1538942638}
 --- !u!114 &1538942641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3262,12 +3304,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 342168944}
   m_PrefabAsset: {fileID: 0}
---- !u!195 &1810478167 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 4330564477713494764, guid: baac9c70b3ea494418fa95a0f60472ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 342168944}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1810478168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3280,9 +3316,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c1dd7817be7444478fdd676630b0112, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 1810478167}
-  pathWaypoints:
-  - {fileID: 341056698}
 --- !u!1 &2034327368 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 92616b9678bcffe4ca00c66f65832a66,
@@ -3320,3 +3353,4 @@ SceneRoots:
   - {fileID: 341056698}
   - {fileID: 342168944}
   - {fileID: 1377700519}
+  - {fileID: 965627575}
