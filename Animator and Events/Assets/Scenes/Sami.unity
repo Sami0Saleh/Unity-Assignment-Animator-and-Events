@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 324448887}
   - component: {fileID: 324448890}
   - component: {fileID: 324448891}
+  - component: {fileID: 324448892}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -492,10 +493,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Size: {x: 0.23648548, y: 3, z: 9.905191}
-  m_Center: {x: -5.0613637, y: 1, z: 0.0075731277}
+  m_Size: {x: 0.29451323, y: 3, z: 9.905191}
+  m_Center: {x: -5.0515566, y: 1, z: 0.0075731277}
   m_Area: 3
   m_AffectedAgents: ffffffff
+--- !u!114 &324448892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324448885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eeb5dc026fdf4b488bc7ae0138ab719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_StartPoint: {x: 6.18, y: 0, z: 0}
+  m_EndPoint: {x: -12.94, y: 0, z: 0}
+  m_Width: 40.393394
+  m_CostModifier: 1
+  m_Bidirectional: 0
+  m_AutoUpdatePosition: 0
+  m_Area: 2
 --- !u!1001 &329787376
 PrefabInstance:
   m_ObjectHideFlags: 0
