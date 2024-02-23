@@ -25,7 +25,7 @@ public class AnimationManager : MonoBehaviour
         { animator.SetBool("SteepFloor", true); }
         else if (!SteepFloor)
         { animator.SetBool("SteepFloor", false); }
-
+        // liner areas speed decrease
         if (Dead)
         { animator.SetBool("Dead", true); }
         else if (!Dead)
@@ -36,4 +36,10 @@ public class AnimationManager : MonoBehaviour
         else if (!Jump)
         { animator.SetBool("Jump", false); }
     }
+
+    public void SetSpeed()
+    {
+        animator.SetFloat("RunningSpeed", 100f);
+    }
+
 }
