@@ -63,6 +63,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Animation So
       objectReference: {fileID: 0}
+    - target: {fileID: 3853268898807207900, guid: 48f58210f6d08f74cae5dd54ab3761b3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 68f545beabeb4ba4da5e0c941ffd0fa0, type: 2}
+    - target: {fileID: 6148737315974723067, guid: 48f58210f6d08f74cae5dd54ab3761b3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 00eef9fdeae7d9340a7c79b6ece177a9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

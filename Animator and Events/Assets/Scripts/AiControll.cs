@@ -12,21 +12,28 @@ public class AiControll : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform[] pathWaypoints;
+
+    public RaycastHit AiRaycast;
     private int currentWaypointIndex = 0;
     private bool Jumping = false;
     private float jumpHeight = 2.0f;
     private float jumpDuration = 1f;
     private void Start()
     {
-        EventManager.JumpEvent += JumpEvent;
+        EventManager.JumpEvent += StartJump;
         navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);
     }
     private void Update()
     {
-        if (navMeshAgent.isOnOffMeshLink && !Jumping)
+        if (AiRaycast.point == null)
         {
-            StartCoroutine(Jump());
+            Debug.Log("Can Run");
         }
+
+        /*if (navMeshAgent.isOnOffMeshLink && !Jumping)
+        {
+            JumpEvent();
+        }*/
     }
     IEnumerator Jump()
     {
@@ -53,9 +60,14 @@ public class AiControll : MonoBehaviour
         navMeshAgent.CompleteOffMeshLink();
     }
 
-    public void JumpEvent()
+    public void StarJump()
     {
-        Debug.Log("Ai Is Jumping");
+    }
+    public void StartJump()
+    {
+        if (!navMeshAgent.isOnOffMeshLink)
+        { return; }
+        StartCoroutine(Jump());
     }
 }
 

@@ -44,6 +44,6 @@ public class AnimationManager : MonoBehaviour
 
     public void JumpAnimation()
     {
-        Debug.Log("Animation Manager Jumped");
+        animator.SetBool("Jump", true);
     }
 }
