@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class NavMeshObstacle : MonoBehaviour
 {
-    public Vector3 StartingPos;
-    public Vector3 EndingPos;
+    private Vector3 StartingPos;
+    [SerializeField] Vector3 EndingPos;
     Vector3 MoveLeft = Vector3.left;
     Vector3 MoveRight = Vector3.right;
     public bool Direction = false;
