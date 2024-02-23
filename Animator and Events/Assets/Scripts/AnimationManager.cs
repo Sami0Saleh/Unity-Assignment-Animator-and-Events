@@ -11,7 +11,7 @@ public class AnimationManager : MonoBehaviour
     public bool Jump;
     void Start()
     {
-
+        EventManager.JumpEvent += JumpAnimation;
     }
 
     void Update()
@@ -42,4 +42,8 @@ public class AnimationManager : MonoBehaviour
         animator.SetFloat("RunningSpeed", 100f);
     }
 
+    public void JumpAnimation()
+    {
+        Debug.Log("Animation Manager Jumped");
+    }
 }
