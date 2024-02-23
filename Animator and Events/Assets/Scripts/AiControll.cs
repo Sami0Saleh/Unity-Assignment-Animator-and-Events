@@ -18,7 +18,7 @@ public class AiControll : MonoBehaviour
     private float jumpDuration = 1f;
     private void Start()
     {
-        EventManager.JumpEvent += Jump;
+        EventManager.JumpEvent += JumpEvent;
         navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);
     }
     private void Update()
@@ -53,7 +53,7 @@ public class AiControll : MonoBehaviour
         navMeshAgent.CompleteOffMeshLink();
     }
 
-    public void Jump()
+    public void JumpEvent()
     {
         Debug.Log("Ai Is Jumping");
     }
