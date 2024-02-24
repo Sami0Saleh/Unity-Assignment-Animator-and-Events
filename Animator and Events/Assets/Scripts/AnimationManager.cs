@@ -11,31 +11,30 @@ public class AnimationManager : MonoBehaviour
     void Start()
     {
         EventManager.JumpEvent += JumpAnimation;
+        EventManager.StopJumpEvent += StopJumpAnimation;
         EventManager.RunEvent += RunAnimation;
         EventManager.RunEvent += SetSpeed;
         EventManager.StopRunEvent += StopRunAnimation;
+        EventManager.SteepWalkEvent += SteepWalkAnimation;
+        EventManager.StopSteepWalkEvent += StopSteepWalkAnimation;
     }
 
     void Update()
     {
-        if (SteepFloor)
-        { animator.SetBool("SteepFloor", true); }
-        else if (!SteepFloor)
-        { animator.SetBool("SteepFloor", false); }
-        // liner areas speed decrease
         if (Dead)
         { animator.SetBool("Dead", true); }
         else if (!Dead)
         { animator.SetBool("Dead", false); }
     }
 
- 
-
     public void JumpAnimation()
     {
         animator.SetBool("Jump", true);
     }
-
+    public void StopJumpAnimation()
+    {
+        animator.SetBool("Jump", false);
+    }
     public void SetSpeed()
     {
         //animator.SetFloat("RunningSpeed", 100f);
@@ -48,5 +47,13 @@ public class AnimationManager : MonoBehaviour
     {
         animator.SetBool("CanRun", false);
 
+    }
+    public void SteepWalkAnimation()
+    {
+        animator.SetBool("SteepFloor", true);
+    }
+    public void StopSteepWalkAnimation()
+    {
+        animator.SetBool("SteepFloor", false);
     }
 }

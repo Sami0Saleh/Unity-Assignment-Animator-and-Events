@@ -19,6 +19,7 @@ public class AiControll : MonoBehaviour
     private float jumpHeight = 2.0f;
     private float jumpDuration = 1f;
 
+    private Vector3 walkPoint;
 
     private void Start()
     {
@@ -32,10 +33,18 @@ public class AiControll : MonoBehaviour
     }
     private void Update()
     {
-       
-   
+        SearchWalkPoint();
     }
+    public void SearchWalkPoint()
+    {
 
+        walkPoint = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(walkPoint, out hit, 0.1f, 1 << NavMesh.GetAreaFromName("Stairs")))
+        { Debug.Log("Stairs"); }
+        
+    }
     public void StartJump()
     {
         if (!navMeshAgent.isOnOffMeshLink)
