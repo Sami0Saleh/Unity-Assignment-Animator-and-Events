@@ -1460,9 +1460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86cab54a8b0350d459143d201c544c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 2034327369}
-  canRun: 0
-  SteepFloor: 0
+  blueAnimator: {fileID: 2034327369}
+  redAnimator: {fileID: 1303969234}
   Dead: 0
 --- !u!4 &965627575
 Transform:
@@ -1658,6 +1657,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143681029}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1303969234 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4654734320410845288, guid: baac9c70b3ea494418fa95a0f60472ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 342168944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1320902926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2604,8 +2609,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RedNavMeshAgent: {fileID: 397870864}
   BlueNavMeshAgent: {fileID: 2034327370}
-  delayAmount: 1
-  Run: 1
 --- !u!4 &2127320427
 Transform:
   m_ObjectHideFlags: 0

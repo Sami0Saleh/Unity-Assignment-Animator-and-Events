@@ -1,59 +1,105 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Searcher.Searcher.AnalyticsEvent;
 
 public class AnimationManager : MonoBehaviour
 {
-    [SerializeField] Animator animator;
-    public bool canRun;
-    public bool SteepFloor;
+    [SerializeField] Animator blueAnimator;
+    [SerializeField] Animator redAnimator;
+
     public bool Dead;
+
+    private string _blueAgentType = "blue";
+    private string _redAgentType = "red";
+
     void Start()
     {
+        _blueAgentType = blueAnimator.gameObject.tag;
+
         EventManager.JumpEvent += JumpAnimation;
         EventManager.StopJumpEvent += StopJumpAnimation;
+
         EventManager.RunEvent += RunAnimation;
         EventManager.RunEvent += SetSpeed;
         EventManager.StopRunEvent += StopRunAnimation;
-        EventManager.SteepWalkEvent += SteepWalkAnimation;
+
+        EventManager.SteepWalkEvent +=  SteepWalkAnimation;
         EventManager.StopSteepWalkEvent += StopSteepWalkAnimation;
+
+        EventManager.DeathEvent += DeathAnimation; 
     }
 
     void Update()
     {
         if (Dead)
-        { animator.SetBool("Dead", true); }
+        { blueAnimator.SetBool("Dead", true); }
         else if (!Dead)
-        { animator.SetBool("Dead", false); }
+        { blueAnimator.SetBool("Dead", false); }
     }
 
-    public void JumpAnimation()
+    public void JumpAnimation(string AgentType) // done
     {
-        animator.SetBool("Jump", true);
+        if (AgentType == _blueAgentType)
+        { blueAnimator.SetBool("Jump", true); }
+        else if (AgentType == _redAgentType)
+        { redAnimator.SetBool("Jump", true); }
     }
-    public void StopJumpAnimation()
+    public void StopJumpAnimation(string AgentType) // done
     {
-        animator.SetBool("Jump", false);
+        if (AgentType == _blueAgentType)
+        { blueAnimator.SetBool("Jump", false); }
+        else if (AgentType == _redAgentType)
+        { redAnimator.SetBool("Jump", false); }
     }
-    public void SetSpeed()
+    public void SetSpeed(string AgentType)
     {
         //animator.SetFloat("RunningSpeed", 100f);
     }
-    public void RunAnimation()
+    public void RunAnimation(string AgentType)
     {
-        animator.SetBool("CanRun", true);
+        if (AgentType == _blueAgentType)
+        { blueAnimator.SetBool("CanRun", true); }
+        else if (AgentType == _redAgentType)
+        { redAnimator.SetBool("CanRun", true); }
+        
     }
-    public void StopRunAnimation()
+    public void StopRunAnimation(string AgentType)
     {
-        animator.SetBool("CanRun", false);
+        if (AgentType == _blueAgentType)
+        { blueAnimator.SetBool("CanRun", false); }
+        else if (AgentType == _redAgentType)
+        { redAnimator.SetBool("CanRun", false); }
 
     }
-    public void SteepWalkAnimation()
+    public void SteepWalkAnimation(string AgentType)
     {
-        animator.SetBool("SteepFloor", true);
+        if (AgentType == _blueAgentType)
+        { blueAnimator.SetBool("SteepFloor", true); }
+        else if (AgentType == _redAgentType)
+        { redAnimator.SetBool("SteepFloor", true); ; }
+        
     }
-    public void StopSteepWalkAnimation()
+    public void StopSteepWalkAnimation(string AgentType)
     {
-        animator.SetBool("SteepFloor", false);
+        if (AgentType == _blueAgentType)
+        { blueAnimator.SetBool("SteepFloor", false); }
+        else if (AgentType == _redAgentType)
+        { redAnimator.SetBool("SteepFloor", false); ; }
+    }
+
+    public void DeathAnimation(string AgentType)
+    {
+        if (AgentType == _blueAgentType)
+        { blueAnimator.SetBool("Dead", true); }
+        else if (AgentType == _redAgentType)
+        { redAnimator.SetBool("Dead", true); }
+    }   
+    public void StopDeathAnimation(string AgentType) // do i need this??
+    {
+        if (AgentType == _blueAgentType)
+        { blueAnimator.SetBool("Dead", false); }
+        else if (AgentType == _redAgentType)
+        { redAnimator.SetBool("Dead", false); ; }
     }
 }

@@ -10,62 +10,73 @@ using UnityEngine.AI;
 
 public class AiControll : MonoBehaviour
 {
+    // SerializeFields
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform[] pathWaypoints;
 
-    public RaycastHit AiRaycast;
+    // Private Variables
     private int currentWaypointIndex = 0;
-    private bool Jumping = false;
     private float jumpHeight = 2.0f;
     private float jumpDuration = 1f;
 
-    private Vector3 walkPoint;
+    private string AgentType;
+    // private Vector3 walkPoint;
 
     private void Start()
     {
+        // setting agent type
+        if (this.tag != "blue")
+        { AgentType = "red"; }
+        else { AgentType = "blue"; }
+
+        // subscribing to events
         EventManager.JumpEvent += StartJump;
         EventManager.RunEvent += StartRunning;
         EventManager.StopRunEvent += StopRunning;
+        EventManager.SteepWalkEvent += StartSteep;
 
+
+        // Setting NavMeshAgent Variables
         navMeshAgent.speed = 1;
         navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);
         
     }
     private void Update()
     {
-        SearchWalkPoint();
+       
     }
-    public void SearchWalkPoint()
+    public void StartJump(string agentType)
+    {
+        if (agentType == AgentType)
+        { StartCoroutine(Jump()); }
+    }
+    public void StartRunning(string agentType)
+    {
+        if (agentType == AgentType)
+            navMeshAgent.speed = 2f;
+    }
+    public void StopRunning(string agentType)
+    {
+        if (agentType == AgentType)
+            navMeshAgent.speed = 1f;
+    }
+    public void StartSteep(string agentType)
     {
 
-        walkPoint = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-
-        NavMeshHit hit;
-        if (NavMesh.SamplePosition(walkPoint, out hit, 0.1f, 1 << NavMesh.GetAreaFromName("Stairs")))
-        { Debug.Log("Stairs"); }
-        
-    }
-    public void StartJump()
-    {
-        if (!navMeshAgent.isOnOffMeshLink)
-        { return; }
-        StartCoroutine(Jump());
-    }
-    
-    public void StartRunning()
-    {
-        navMeshAgent.speed = 2f;
+        if (agentType == AgentType)
+        {
+            Debug.Log($"{agentType} should be slowing");
+            navMeshAgent.velocity = Vector3.zero;
+            navMeshAgent.acceleration = 0;
+            navMeshAgent.speed = 0.2f;
+        }
     }
 
-    public void StopRunning()
-    {
-        navMeshAgent.speed = 1f;
-    }
+
+
 
     IEnumerator Jump()
     {
-        Jumping = true;
-
         OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;
         Vector3 startPos = navMeshAgent.transform.position;
         Vector3 endPos = data.endPos;
@@ -80,10 +91,7 @@ public class AiControll : MonoBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-
         navMeshAgent.transform.position = endPos;
-        Jumping = false;
-
         navMeshAgent.CompleteOffMeshLink();
     }
 }
