@@ -83,7 +83,7 @@ public class AiControll : MonoBehaviour
         {
             Debug.Log($"{agentType} should be speeding");
             navMeshAgent.acceleration = 8;
-            navMeshAgent.speed = 1f;
+           // navMeshAgent.speed = 1f;
         }
     }
 
