@@ -12,7 +12,7 @@ public class AiControll : MonoBehaviour
 {
     // SerializeFields
     [SerializeField] private NavMeshAgent navMeshAgent;
-    [SerializeField] private Transform[] pathWaypoints;
+    [SerializeField] private Transform Target;
 
     // Private Variables
     private int currentWaypointIndex = 0;
@@ -25,21 +25,31 @@ public class AiControll : MonoBehaviour
     private void Start()
     {
         // setting agent type
-        if (this.tag != "blue")
+        if (this.tag == "red")
         { AgentType = "red"; }
-        else { AgentType = "blue"; }
+        if (this.tag == "blue")
+        { AgentType = "blue"; }
 
         // subscribing to events
         EventManager.JumpEvent += StartJump;
         EventManager.RunEvent += StartRunning;
         EventManager.StopRunEvent += StopRunning;
         EventManager.SteepWalkEvent += StartSteep;
+        EventManager.StopSteepWalkEvent += StopSteep;
+        EventManager.DeathEvent += Death;
 
 
         // Setting NavMeshAgent Variables
         navMeshAgent.speed = 1;
-        navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);
-        
+        navMeshAgent.SetDestination(Target.position);    
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            navMeshAgent.SetDestination(Target.position);
+        }
     }
     public void StartJump(string agentType)
     {
@@ -48,13 +58,13 @@ public class AiControll : MonoBehaviour
     }
     public void StartRunning(string agentType)
     {
-        if (agentType == AgentType)
-            navMeshAgent.speed = 2f;
+      //  if (agentType == AgentType)
+         //   navMeshAgent.speed = 2f;
     }
     public void StopRunning(string agentType)
     {
-        if (agentType == AgentType)
-            navMeshAgent.speed = 1f;
+       // if (agentType == AgentType)
+            //navMeshAgent.speed = 1f;
     }
     public void StartSteep(string agentType)
     {
@@ -64,10 +74,27 @@ public class AiControll : MonoBehaviour
             Debug.Log($"{agentType} should be slowing");
             navMeshAgent.velocity = Vector3.zero;
             navMeshAgent.acceleration = 0;
-            navMeshAgent.speed = 0.2f;
+           // navMeshAgent.speed = 0.2f;
+        }
+    }
+    public void StopSteep(string agentType)
+    {
+        if (agentType == AgentType)
+        {
+            Debug.Log($"{agentType} should be speeding");
+            navMeshAgent.acceleration = 8;
+            navMeshAgent.speed = 1f;
         }
     }
 
+    public void Death(string agentType)
+    {
+        if (agentType == AgentType)
+        {
+            navMeshAgent.velocity = Vector3.zero;
+            navMeshAgent.acceleration = 0;
+        }
+    }
 
 
 

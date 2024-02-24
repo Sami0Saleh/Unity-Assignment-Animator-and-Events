@@ -22,8 +22,6 @@ public class EventManager : MonoBehaviour
     // NavMeshAgents
     [SerializeField] private NavMeshAgent RedNavMeshAgent;
     [SerializeField] private NavMeshAgent BlueNavMeshAgent;
-
-    public string AgentType;
     
     // private Variables
     private float timer = 0f;
@@ -33,11 +31,13 @@ public class EventManager : MonoBehaviour
     private Vector3 _redWalkPoint;
     private Vector3 _blueWalkPoint;
 
+    public bool DeathBool =  false;
     void Update()
     {
         Jumping();
         Running();
         CheckNavMeshSurface();
+        Death();
     }
     public void CheckNavMeshSurface()
     {
@@ -50,9 +50,11 @@ public class EventManager : MonoBehaviour
 
         if (NavMesh.SamplePosition(_redWalkPoint, out hit, 0.1f, 1 << NavMesh.GetAreaFromName("Stairs")))
         { StopRunEvent?.Invoke("red"); SteepWalkEvent?.Invoke("red"); }
-        else if (NavMesh.SamplePosition(_blueWalkPoint, out hit, 0.1f, 1 << NavMesh.GetAreaFromName("Stairs")))
-        { StopRunEvent?.Invoke("blue"); SteepWalkEvent?.Invoke("blue"); }
-        else { StopSteepWalkEvent?.Invoke("blue"); StopSteepWalkEvent?.Invoke("red"); }
+        else { StopSteepWalkEvent?.Invoke("red"); }
+
+        if (NavMesh.SamplePosition(_blueWalkPoint, out hit, 0.1f, 1 << NavMesh.GetAreaFromName("Stairs")))
+        { Debug.Log("Samiii"); StopRunEvent?.Invoke("blue"); SteepWalkEvent?.Invoke("blue"); }
+        else { StopSteepWalkEvent?.Invoke("blue"); }
     }
     public void Jumping()
     {
@@ -86,5 +88,18 @@ public class EventManager : MonoBehaviour
                 { RunEvent?.Invoke("red"); RunEvent?.Invoke("blue"); Run = true; }
             }
         }
+    }
+    public void Death()
+    {
+        if (BlueNavMeshAgent.transform.position == BlueNavMeshAgent.destination)
+        {
+            DeathEvent?.Invoke("red"); Debug.Log(" Red Death");
+        }
+       
+        if(RedNavMeshAgent.transform.position == RedNavMeshAgent.destination)
+        {
+            DeathEvent?.Invoke("blue"); Debug.Log("blue Death");
+        }
+       
     }
 }
