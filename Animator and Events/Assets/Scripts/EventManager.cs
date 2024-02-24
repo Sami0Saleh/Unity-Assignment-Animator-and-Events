@@ -19,14 +19,11 @@ public class EventManager : MonoBehaviour
 
     public static event Action<string> DeathEvent;
 
-
-
-
     // NavMeshAgents
     [SerializeField] private NavMeshAgent RedNavMeshAgent;
     [SerializeField] private NavMeshAgent BlueNavMeshAgent;
 
-    public static string AgentType;
+    public string AgentType;
     
     // private Variables
     private float timer = 0f;
@@ -36,10 +33,6 @@ public class EventManager : MonoBehaviour
     private Vector3 _redWalkPoint;
     private Vector3 _blueWalkPoint;
 
-    void Start() // need to delete if empty
-    {
-     
-    }
     void Update()
     {
         Jumping();
@@ -59,6 +52,7 @@ public class EventManager : MonoBehaviour
         { StopRunEvent?.Invoke("red"); SteepWalkEvent?.Invoke("red"); }
         else if (NavMesh.SamplePosition(_blueWalkPoint, out hit, 0.1f, 1 << NavMesh.GetAreaFromName("Stairs")))
         { StopRunEvent?.Invoke("blue"); SteepWalkEvent?.Invoke("blue"); }
+        else { StopSteepWalkEvent?.Invoke("blue"); StopSteepWalkEvent?.Invoke("red"); }
     }
     public void Jumping()
     {

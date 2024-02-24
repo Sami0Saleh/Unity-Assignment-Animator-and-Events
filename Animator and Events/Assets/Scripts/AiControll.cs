@@ -41,10 +41,6 @@ public class AiControll : MonoBehaviour
         navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);
         
     }
-    private void Update()
-    {
-       
-    }
     public void StartJump(string agentType)
     {
         if (agentType == AgentType)

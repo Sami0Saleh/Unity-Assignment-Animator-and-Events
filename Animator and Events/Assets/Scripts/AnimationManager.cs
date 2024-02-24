@@ -21,7 +21,6 @@ public class AnimationManager : MonoBehaviour
         EventManager.StopJumpEvent += StopJumpAnimation;
 
         EventManager.RunEvent += RunAnimation;
-        EventManager.RunEvent += SetSpeed;
         EventManager.StopRunEvent += StopRunAnimation;
 
         EventManager.SteepWalkEvent +=  SteepWalkAnimation;
@@ -32,10 +31,7 @@ public class AnimationManager : MonoBehaviour
 
     void Update()
     {
-        if (Dead)
-        { blueAnimator.SetBool("Dead", true); }
-        else if (!Dead)
-        { blueAnimator.SetBool("Dead", false); }
+
     }
 
     public void JumpAnimation(string AgentType) // done
@@ -52,40 +48,36 @@ public class AnimationManager : MonoBehaviour
         else if (AgentType == _redAgentType)
         { redAnimator.SetBool("Jump", false); }
     }
-    public void SetSpeed(string AgentType)
-    {
-        //animator.SetFloat("RunningSpeed", 100f);
-    }
     public void RunAnimation(string AgentType)
     {
         if (AgentType == _blueAgentType)
-        { blueAnimator.SetBool("CanRun", true); }
+        { blueAnimator.SetBool("CanRun", true); blueAnimator.SetFloat("Speed", 2); }
         else if (AgentType == _redAgentType)
-        { redAnimator.SetBool("CanRun", true); }
+        { redAnimator.SetBool("CanRun", true); redAnimator.SetFloat("Speed", 2); }
         
     }
     public void StopRunAnimation(string AgentType)
     {
         if (AgentType == _blueAgentType)
-        { blueAnimator.SetBool("CanRun", false); }
+        { blueAnimator.SetBool("CanRun", false); blueAnimator.SetFloat("Speed", 1);}
         else if (AgentType == _redAgentType)
-        { redAnimator.SetBool("CanRun", false); }
+        { redAnimator.SetBool("CanRun", false); redAnimator.SetFloat("Speed", 1); }
 
     }
     public void SteepWalkAnimation(string AgentType)
     {
         if (AgentType == _blueAgentType)
-        { blueAnimator.SetBool("SteepFloor", true); }
+        { blueAnimator.SetBool("SteepFloor", true); blueAnimator.SetFloat("Speed", 0.5f); }
         else if (AgentType == _redAgentType)
-        { redAnimator.SetBool("SteepFloor", true); ; }
+        { redAnimator.SetBool("SteepFloor", true); redAnimator.SetFloat("Speed", 0.5f); }
         
     }
     public void StopSteepWalkAnimation(string AgentType)
     {
         if (AgentType == _blueAgentType)
-        { blueAnimator.SetBool("SteepFloor", false); }
+        { blueAnimator.SetBool("SteepFloor", false); blueAnimator.SetFloat("Speed", 1); }
         else if (AgentType == _redAgentType)
-        { redAnimator.SetBool("SteepFloor", false); ; }
+        { redAnimator.SetBool("SteepFloor", false); redAnimator.SetFloat("Speed", 1); }
     }
 
     public void DeathAnimation(string AgentType)
