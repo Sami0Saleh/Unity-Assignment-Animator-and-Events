@@ -18,23 +18,41 @@ public class AiControll : MonoBehaviour
     private bool Jumping = false;
     private float jumpHeight = 2.0f;
     private float jumpDuration = 1f;
+
+
     private void Start()
     {
         EventManager.JumpEvent += StartJump;
+        EventManager.RunEvent += StartRunning;
+        EventManager.StopRunEvent += StopRunning;
+
+        navMeshAgent.speed = 1;
         navMeshAgent.SetDestination(pathWaypoints[currentWaypointIndex].position);
+        
     }
     private void Update()
     {
-        if (AiRaycast.point == null)
-        {
-            Debug.Log("Can Run");
-        }
-
-        /*if (navMeshAgent.isOnOffMeshLink && !Jumping)
-        {
-            JumpEvent();
-        }*/
+       
+   
     }
+
+    public void StartJump()
+    {
+        if (!navMeshAgent.isOnOffMeshLink)
+        { return; }
+        StartCoroutine(Jump());
+    }
+    
+    public void StartRunning()
+    {
+        navMeshAgent.speed = 2f;
+    }
+
+    public void StopRunning()
+    {
+        navMeshAgent.speed = 1f;
+    }
+
     IEnumerator Jump()
     {
         Jumping = true;
@@ -53,21 +71,11 @@ public class AiControll : MonoBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        
+
         navMeshAgent.transform.position = endPos;
         Jumping = false;
 
         navMeshAgent.CompleteOffMeshLink();
-    }
-
-    public void StarJump()
-    {
-    }
-    public void StartJump()
-    {
-        if (!navMeshAgent.isOnOffMeshLink)
-        { return; }
-        StartCoroutine(Jump());
     }
 }
 

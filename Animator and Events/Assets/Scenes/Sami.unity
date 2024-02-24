@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 324448891}
   - component: {fileID: 324448892}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: NavMeshSurface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1464,7 +1464,6 @@ MonoBehaviour:
   canRun: 0
   SteepFloor: 0
   Dead: 0
-  Jump: 0
 --- !u!4 &965627575
 Transform:
   m_ObjectHideFlags: 0
@@ -2426,7 +2425,7 @@ MonoBehaviour:
   m_RenderShadows: 1
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
+  m_CameraType: 1
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
@@ -2605,6 +2604,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RedNavMeshAgent: {fileID: 397870864}
   BlueNavMeshAgent: {fileID: 2034327370}
+  delayAmount: 1
+  Run: 1
 --- !u!4 &2127320427
 Transform:
   m_ObjectHideFlags: 0
@@ -2633,10 +2634,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Player + Animations
       objectReference: {fileID: 0}
+    - target: {fileID: 2476857660935101516, guid: 23ff8d806ff4d004b8e5c0e3640779d3,
+        type: 3}
+      propertyPath: m_TagString
+      value: blue
+      objectReference: {fileID: 0}
     - target: {fileID: 2960061532895807222, guid: 23ff8d806ff4d004b8e5c0e3640779d3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.76
+      value: 38.43
       objectReference: {fileID: 0}
     - target: {fileID: 2960061532895807222, guid: 23ff8d806ff4d004b8e5c0e3640779d3,
         type: 3}
@@ -2646,7 +2652,7 @@ PrefabInstance:
     - target: {fileID: 2960061532895807222, guid: 23ff8d806ff4d004b8e5c0e3640779d3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.93
+      value: 18.06
       objectReference: {fileID: 0}
     - target: {fileID: 2960061532895807222, guid: 23ff8d806ff4d004b8e5c0e3640779d3,
         type: 3}

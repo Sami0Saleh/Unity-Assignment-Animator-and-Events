@@ -8,19 +8,16 @@ public class AnimationManager : MonoBehaviour
     public bool canRun;
     public bool SteepFloor;
     public bool Dead;
-    public bool Jump;
     void Start()
     {
         EventManager.JumpEvent += JumpAnimation;
+        EventManager.RunEvent += RunAnimation;
+        EventManager.RunEvent += SetSpeed;
+        EventManager.StopRunEvent += StopRunAnimation;
     }
 
     void Update()
     {
-        if (canRun)
-        { animator.SetBool("CanRun", true); }
-        else if (!canRun)
-        { animator.SetBool("CanRun", false); }
-
         if (SteepFloor)
         { animator.SetBool("SteepFloor", true); }
         else if (!SteepFloor)
@@ -30,20 +27,26 @@ public class AnimationManager : MonoBehaviour
         { animator.SetBool("Dead", true); }
         else if (!Dead)
         { animator.SetBool("Dead", false); }
-
-        if (Jump)
-        { animator.SetBool("Jump", true); }
-        else if (!Jump)
-        { animator.SetBool("Jump", false); }
     }
 
-    public void SetSpeed()
-    {
-        animator.SetFloat("RunningSpeed", 100f);
-    }
+ 
 
     public void JumpAnimation()
     {
         animator.SetBool("Jump", true);
+    }
+
+    public void SetSpeed()
+    {
+        //animator.SetFloat("RunningSpeed", 100f);
+    }
+    public void RunAnimation()
+    {
+        animator.SetBool("CanRun", true);
+    }
+    public void StopRunAnimation()
+    {
+        animator.SetBool("CanRun", false);
+
     }
 }
