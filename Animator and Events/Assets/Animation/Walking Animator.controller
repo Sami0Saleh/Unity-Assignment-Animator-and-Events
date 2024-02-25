@@ -395,7 +395,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Falling
-  m_Speed: 1
+  m_Speed: 0.8
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2909800245700989022}
@@ -414,7 +414,7 @@ AnimatorState:
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_TimeParameter: Speed
 --- !u!1109 &726681161598640626
 AnimatorTransition:
   m_ObjectHideFlags: 1
@@ -471,9 +471,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.07966633
   m_TransitionOffset: 0
-  m_ExitTime: 0.73684216
+  m_ExitTime: 0.022328788
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -494,8 +494,8 @@ AnimatorStateTransition:
   m_IsExit: 1
   serializedVersion: 3
   m_TransitionDuration: 0.25
-  m_TransitionOffset: 0
-  m_ExitTime: 0.8828125
+  m_TransitionOffset: 0.11979474
+  m_ExitTime: 0.9361586
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0

@@ -44,17 +44,20 @@ public class AiControll : MonoBehaviour
         navMeshAgent.SetDestination(Target.position);    
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetMouseButton(0))
         {
             navMeshAgent.SetDestination(Target.position);
         }
-    }
+    }*/
     public void StartJump(string agentType)
     {
         if (agentType == AgentType)
-        { StartCoroutine(Jump()); }
+        {
+            
+            //StartCoroutine(Jump());
+        }
     }
     public void StartRunning(string agentType)
     {
