@@ -15,7 +15,6 @@ public class AiControll : MonoBehaviour
     [SerializeField] private Transform Target;
 
     // Private Variables
-    private int currentWaypointIndex = 0;
     private float jumpHeight = 2.0f;
     private float jumpDuration = 1f;
 
@@ -29,6 +28,8 @@ public class AiControll : MonoBehaviour
         { AgentType = "red"; }
         if (this.tag == "blue")
         { AgentType = "blue"; }
+        if (this.tag == "yellow")
+        { AgentType = "yellow"; }
 
         // subscribing to events
         EventManager.JumpEvent += StartJump;
@@ -43,20 +44,11 @@ public class AiControll : MonoBehaviour
         navMeshAgent.speed = 1;
         navMeshAgent.SetDestination(Target.position);    
     }
-
-    /*private void Update()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            navMeshAgent.SetDestination(Target.position);
-        }
-    }*/
     public void StartJump(string agentType)
     {
         if (agentType == AgentType)
         {
-            
-            //StartCoroutine(Jump());
+            StartCoroutine(Jump());
         }
     }
     public void StartRunning(string agentType)
@@ -74,19 +66,15 @@ public class AiControll : MonoBehaviour
 
         if (agentType == AgentType)
         {
-            Debug.Log($"{agentType} should be slowing");
             navMeshAgent.velocity = Vector3.zero;
             navMeshAgent.acceleration = 0;
-           // navMeshAgent.speed = 0.2f;
         }
     }
     public void StopSteep(string agentType)
     {
         if (agentType == AgentType)
         {
-            Debug.Log($"{agentType} should be speeding");
             navMeshAgent.acceleration = 8;
-           // navMeshAgent.speed = 1f;
         }
     }
 
@@ -98,8 +86,6 @@ public class AiControll : MonoBehaviour
             navMeshAgent.acceleration = 0;
         }
     }
-
-
 
     IEnumerator Jump()
     {

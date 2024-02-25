@@ -28,15 +28,9 @@ public class GameManager : MonoBehaviour
         StartCanvas.enabled = true;
         EndCanvas.enabled = false;
         InGameCanvas.enabled = false;
-    }
 
-    void Update()
-    {
-        WhosLeading();
-        if (RedX <= -70.03 || YellowX <= -70.03 || BlueX <= -70.03)
-        {
-            WhoWon();
-        }
+        EventManager.WhosLeading += WhosLeading;
+        EventManager.WhoWon += WhoWon;
     }
 
     public void StartGame()
@@ -67,34 +61,30 @@ public class GameManager : MonoBehaviour
         if (YellowX < BlueX && YellowX < RedX)
         {
             winning = "yellow";
-            Place.color = Color.yellow; Place.text = "1st Place"; return;
+            Place.color = Color.yellow; Place.text = "Yellow In The Lead"; return;
             
         }
         else if (YellowX < BlueX && YellowX > RedX)
         {
             winning = "blue";
-            Place.color = Color.cyan; Place.text = "2nd Place"; return;
+            Place.color = Color.blue; Place.text = "Blue In The Lead"; return;
         }
         else if (YellowX > BlueX && YellowX < RedX)
         {
             winning = "red";
-            Place.color = Color.cyan; Place.text = "2nd Place"; return;
+            Place.color = Color.red; Place.text = "Red In The Lead"; return;
         }
         else if (YellowX > BlueX && YellowX > RedX)
         {
-            if (BlueX < RedX) { winning = "blue"; }
-            else { winning = "red"; }
-           Place.color = Color.magenta; Place.text = "3rd Place"; return;
+            if (BlueX < RedX) { winning = "blue"; Place.color = Color.blue; Place.text = "Blue In The Lead"; return; }
+            else { winning = "red"; Place.color = Color.red; Place.text = "Red In The Lead"; return; }
         }
 
     }
 
-    public void WhoWon()
+    public void WhoWon(string whoWon)
     {
-        YellowX = YellowPlayer.position.x;
-        BlueX = BluePlayer.position.x;
-        RedX = RedPlayer.position.x;
-
+        winning = whoWon;
             switch (winning)
             {
                 case "red": { WhoWonText.color = Color.red; break; }
