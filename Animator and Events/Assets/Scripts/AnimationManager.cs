@@ -27,7 +27,6 @@ public class AnimationManager : MonoBehaviour
         EventManager.StopSteepWalkEvent += StopSteepWalkAnimation;
 
         EventManager.WhoWon += WinAnimation;
-        EventManager.WhoWon += DisableAnimators;
         EventManager.DeathEvent += DeathAnimation; 
     }
 
@@ -110,21 +109,5 @@ public class AnimationManager : MonoBehaviour
                 case "yellow": yellowAnimator.SetBool("Won", true); break;
             }
         }
-    }
-
-    public void DisableAnimators(string[] WhoWon)
-    {
-        redAnimator.enabled = false;
-        blueAnimator.enabled = false;
-        yellowAnimator.enabled = false;
-
-        redAnimator.enabled = true;
-        blueAnimator.enabled = true;
-        yellowAnimator.enabled = true;
-
-        redAnimator.Play("idle", 1);
-        blueAnimator.Play("idle", 1);
-        yellowAnimator.Play("idle", 1);
-
     }
 }

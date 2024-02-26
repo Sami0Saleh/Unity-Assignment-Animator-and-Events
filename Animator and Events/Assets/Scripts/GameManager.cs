@@ -60,25 +60,25 @@ public class GameManager : MonoBehaviour
         BlueZ = BluePlayer.position.z;
         RedZ = RedPlayer.position.z;
 
-        if (YellowZ < BlueZ && YellowZ < RedZ)
+        if (YellowZ > BlueZ && YellowZ > RedZ)
         {
             winning = "yellow";
             Place.color = Color.yellow; Place.text = "Yellow In The Lead"; return;
             
         }
-        else if (YellowZ < BlueZ && YellowZ > RedZ)
+        else if (YellowZ > BlueZ && YellowZ > RedZ)
         {
             winning = "blue";
             Place.color = Color.blue; Place.text = "Blue In The Lead"; return;
         }
-        else if (YellowZ > BlueZ && YellowZ < RedZ)
+        else if (YellowZ < BlueZ && YellowZ > RedZ)
         {
             winning = "red";
             Place.color = Color.red; Place.text = "Red In The Lead"; return;
         }
-        else if (YellowZ > BlueZ && YellowZ > RedZ)
+        else if (YellowZ < BlueZ && YellowZ < RedZ)
         {
-            if (BlueZ < RedZ) { winning = "blue"; Place.color = Color.blue; Place.text = "Blue In The Lead"; return; }
+            if (BlueZ > RedZ) { winning = "blue"; Place.color = Color.blue; Place.text = "Blue In The Lead"; return; }
             else { winning = "red"; Place.color = Color.red; Place.text = "Red In The Lead"; return; }
         }
 
@@ -86,7 +86,6 @@ public class GameManager : MonoBehaviour
 
     public void WhoWon(string[] whoWon)
     {
-        
             winning = whoWon[0];
         if (!gameEnded)
         {
@@ -99,13 +98,7 @@ public class GameManager : MonoBehaviour
             }
             WhoWonText.text = $"{winning} Won";
         }
-            EndGame();
-            
+            EndGame();           
             gameEnded = true;
-        
-
     }
-
-        
-  
 }

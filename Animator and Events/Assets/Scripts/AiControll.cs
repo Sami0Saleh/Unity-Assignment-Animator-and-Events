@@ -72,7 +72,6 @@ public class AiControll : MonoBehaviour
             navMeshAgent.acceleration = 8;
         }
     }
-
     public void Death(string agentType)
     {
         if (agentType == AgentType)
@@ -98,7 +97,6 @@ public class AiControll : MonoBehaviour
             
         }
     }
-
     IEnumerator Jump()
     {
         OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;

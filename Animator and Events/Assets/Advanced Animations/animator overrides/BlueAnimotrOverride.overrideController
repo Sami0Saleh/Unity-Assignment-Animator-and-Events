@@ -6,6 +6,10 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RedAnimator override
+  m_Name: BlueAnimotrOverride
   m_Controller: {fileID: 9100000, guid: 791c723c141fff54798bb5d7ae07dc9a, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 04e66d4d46a4bb04c82cf75883a2bf38,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: e8ff7a8f1bccee94390190cc74f7ab67,
+      type: 3}

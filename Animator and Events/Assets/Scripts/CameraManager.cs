@@ -16,7 +16,6 @@ public class SamiCameraManager : MonoBehaviour
         camera.enabled = true;
         PodiumCamera.enabled = false;
     }
-
     private void Update()
     {
         if (Input.GetKey(KeyCode.D))
