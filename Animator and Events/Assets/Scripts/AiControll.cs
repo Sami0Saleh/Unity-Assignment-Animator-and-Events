@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class AiControll : MonoBehaviour
 {
@@ -14,9 +15,14 @@ public class AiControll : MonoBehaviour
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Transform Target;
 
+    [SerializeField] private Transform FirstPlaceTransform;
+    [SerializeField] private Transform SecondPlaceTransform;
+    [SerializeField] private Transform ThirdPlaceTransform;
+
     // Private Variables
     private float jumpHeight = 2.0f;
     private float jumpDuration = 1f;
+    private bool podiumSet = false;
 
     private string AgentType;
     // private Vector3 walkPoint;
@@ -38,6 +44,7 @@ public class AiControll : MonoBehaviour
         EventManager.SteepWalkEvent += StartSteep;
         EventManager.StopSteepWalkEvent += StopSteep;
         EventManager.DeathEvent += Death;
+        EventManager.WhoWon += SetPodium;
 
 
         // Setting NavMeshAgent Variables
@@ -87,6 +94,20 @@ public class AiControll : MonoBehaviour
         }
     }
 
+    public void SetPodium(string[] agentDetails)
+    {
+        if (agentDetails[0] == AgentType && !podiumSet)
+        {
+            switch (agentDetails[1])
+            {
+                case "first": transform.position = FirstPlaceTransform.position; podiumSet = true; break;
+                case "second": transform.position = SecondPlaceTransform.position; podiumSet = true; break;
+                case "third": transform.position = ThirdPlaceTransform.position; podiumSet = true; break;
+            }
+            
+        }
+    }
+
     IEnumerator Jump()
     {
         OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;
@@ -106,5 +127,6 @@ public class AiControll : MonoBehaviour
         navMeshAgent.transform.position = endPos;
         navMeshAgent.CompleteOffMeshLink();
     }
+
 }
 

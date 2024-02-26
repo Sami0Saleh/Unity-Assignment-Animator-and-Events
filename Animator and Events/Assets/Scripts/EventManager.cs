@@ -16,12 +16,10 @@ public class EventManager : MonoBehaviour
 
     public static event Action<string> SteepWalkEvent;
     public static event Action<string> StopSteepWalkEvent;
-
     public static event Action<string> DeathEvent;
-
     public static event Action WhosLeading;
 
-    public static event Action<string> WhoWon;
+    public static event Action<string[]> WhoWon;
     // NavMeshAgents
     [SerializeField] private NavMeshAgent RedNavMeshAgent;
     [SerializeField] private NavMeshAgent BlueNavMeshAgent;
@@ -38,6 +36,8 @@ public class EventManager : MonoBehaviour
     private bool RedSteepStep = false;
     private bool BlueSteepStep = false;
     private bool yellowSteepStep = false;
+
+    string[] setPodium = new string[2];
 
     public bool DeathBool =  false;
     void Update()
@@ -109,19 +109,89 @@ public class EventManager : MonoBehaviour
     }
     public void Death()
     {
+        
         if (BlueNavMeshAgent.transform.position == BlueNavMeshAgent.destination)
         {
-            DeathEvent?.Invoke("red"); DeathEvent?.Invoke("yellow"); WhoWon?.Invoke("blue");
+            setPodium[0] = "blue"; setPodium[1] = "first";
+            DeathEvent?.Invoke("red"); DeathEvent?.Invoke("yellow"); WhoWon?.Invoke(setPodium);
+            SetLosers("red");
         }
        
         if(RedNavMeshAgent.transform.position == RedNavMeshAgent.destination)
         {
-            DeathEvent?.Invoke("blue"); DeathEvent?.Invoke("yellow"); WhoWon?.Invoke("red");
+            setPodium[0] = "red"; setPodium[1] = "first";
+            DeathEvent?.Invoke("blue"); DeathEvent?.Invoke("yellow"); WhoWon?.Invoke(setPodium);
+            SetLosers("red");
         }
 
-        if (RedNavMeshAgent.transform.position == RedNavMeshAgent.destination)
+        if (YellowNavMeshAgent.transform.position == RedNavMeshAgent.destination)
         {
-            DeathEvent?.Invoke("blue"); DeathEvent?.Invoke("red"); WhoWon?.Invoke("yellow");
+            setPodium[0] = "yellow"; setPodium[1] = "first";
+            DeathEvent?.Invoke("blue"); DeathEvent?.Invoke("red"); WhoWon?.Invoke(setPodium);
+            SetLosers("yellow");
         }
+    }
+
+    public void SetLosers(string winner)
+    {
+        switch (winner)
+        {
+            case "blue": if (CheckXPosition("red", "yellow")) {
+                    setPodium[0] = "red"; setPodium[1] = "second"; WhoWon?.Invoke(setPodium);
+                    setPodium[0] = "yellow"; setPodium[1] = "third"; WhoWon?.Invoke(setPodium);
+                }
+                else {
+                    setPodium[0] = "yellow"; setPodium[1] = "second"; WhoWon?.Invoke(setPodium);
+                    setPodium[0] = "red"; setPodium[1] = "third"; WhoWon?.Invoke(setPodium);
+                } break;
+            case "red":
+                if (CheckXPosition("blue", "yellow")){
+                    setPodium[0] = "blue"; setPodium[1] = "second"; WhoWon?.Invoke(setPodium);
+                    setPodium[0] = "yellow"; setPodium[1] = "third"; WhoWon?.Invoke(setPodium);
+                }
+                else
+                {
+                    setPodium[0] = "yellow"; setPodium[1] = "second"; WhoWon?.Invoke(setPodium);
+                    setPodium[0] = "blue"; setPodium[1] = "third"; WhoWon?.Invoke(setPodium);
+                } break;
+            case "yellow":
+                if (CheckXPosition("blue", "red"))
+                {
+                    setPodium[0] = "blue"; setPodium[1] = "second"; WhoWon?.Invoke(setPodium);
+                    setPodium[0] = "red"; setPodium[1] = "third"; WhoWon?.Invoke(setPodium);
+                }
+                else
+                {
+                    setPodium[0] = "red"; setPodium[1] = "second"; WhoWon?.Invoke(setPodium);
+                    setPodium[0] = "blue"; setPodium[1] = "third"; WhoWon?.Invoke(setPodium);
+                }
+                break;
+            default: Debug.Log("Bug 2"); break;
+        }
+    }
+
+    public bool CheckXPosition(string x1, string x2)
+    {
+        float x1float = 0;
+        float x2float = 0;
+        switch (x1)
+        {
+            case "blue": x1float = BlueNavMeshAgent.transform.position.x; break;
+            case "red": x1float = RedNavMeshAgent.transform.position.x; break;
+            case "yellow": x1float = RedNavMeshAgent.transform.position.x; break;
+            default: Debug.Log("Bug 3"); break;
+
+        }
+        switch (x2)
+        {
+            case "blue": x2float = BlueNavMeshAgent.transform.position.x; break;
+            case "red": x2float = RedNavMeshAgent.transform.position.x; break;
+            case "yellow": x2float = RedNavMeshAgent.transform.position.x; break;
+            default: Debug.Log("Bug 4"); break;
+
+        }
+        if (x1float < x2float)
+        { return true; }
+        return false;
     }
 }

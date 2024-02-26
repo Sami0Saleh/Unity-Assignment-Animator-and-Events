@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     {
         InGameCanvas.enabled = false;
         EndCanvas.enabled = true;
-        Time.timeScale = 0f;
+       
     }
 
     public void WhosLeading()
@@ -82,9 +82,9 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void WhoWon(string whoWon)
+    public void WhoWon(string[] whoWon)
     {
-        winning = whoWon;
+        winning = whoWon[0];
             switch (winning)
             {
                 case "red": { WhoWonText.color = Color.red; break; }
