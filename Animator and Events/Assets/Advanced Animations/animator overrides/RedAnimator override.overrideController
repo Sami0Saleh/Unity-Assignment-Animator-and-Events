@@ -6,6 +6,6 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Winning Emote
+  m_Name: RedAnimator override
   m_Controller: {fileID: 9100000, guid: 791c723c141fff54798bb5d7ae07dc9a, type: 2}
   m_Clips: []

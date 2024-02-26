@@ -39,8 +39,6 @@ public class AiControll : MonoBehaviour
 
         // subscribing to events
         EventManager.JumpEvent += StartJump;
-        EventManager.RunEvent += StartRunning;
-        EventManager.StopRunEvent += StopRunning;
         EventManager.SteepWalkEvent += StartSteep;
         EventManager.StopSteepWalkEvent += StopSteep;
         EventManager.DeathEvent += Death;
@@ -57,16 +55,6 @@ public class AiControll : MonoBehaviour
         {
             StartCoroutine(Jump());
         }
-    }
-    public void StartRunning(string agentType)
-    {
-      //  if (agentType == AgentType)
-         //   navMeshAgent.speed = 2f;
-    }
-    public void StopRunning(string agentType)
-    {
-       // if (agentType == AgentType)
-            //navMeshAgent.speed = 1f;
     }
     public void StartSteep(string agentType)
     {
@@ -98,11 +86,14 @@ public class AiControll : MonoBehaviour
     {
         if (agentDetails[0] == AgentType && !podiumSet)
         {
+            Target = FirstPlaceTransform;
+            navMeshAgent.enabled = false;
             switch (agentDetails[1])
             {
-                case "first": transform.position = FirstPlaceTransform.position; podiumSet = true; break;
-                case "second": transform.position = SecondPlaceTransform.position; podiumSet = true; break;
-                case "third": transform.position = ThirdPlaceTransform.position; podiumSet = true; break;
+                case "first": transform.position = FirstPlaceTransform.position; Target = FirstPlaceTransform; break;
+                case "second": transform.position = SecondPlaceTransform.position; Target = SecondPlaceTransform; break;
+                case "third": transform.position = ThirdPlaceTransform.position; Target = ThirdPlaceTransform; break;
+                default: Debug.Log("Bug 1"); break;
             }
             
         }

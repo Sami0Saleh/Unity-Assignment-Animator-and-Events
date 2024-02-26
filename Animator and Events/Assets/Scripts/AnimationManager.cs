@@ -17,7 +17,6 @@ public class AnimationManager : MonoBehaviour
 
     void Start()
     {
-
         EventManager.JumpEvent += JumpAnimation;
         EventManager.StopJumpEvent += StopJumpAnimation;
 
@@ -27,6 +26,8 @@ public class AnimationManager : MonoBehaviour
         EventManager.SteepWalkEvent +=  SteepWalkAnimation;
         EventManager.StopSteepWalkEvent += StopSteepWalkAnimation;
 
+        EventManager.WhoWon += WinAnimation;
+        EventManager.WhoWon += DisableAnimators;
         EventManager.DeathEvent += DeathAnimation; 
     }
 
@@ -96,5 +97,34 @@ public class AnimationManager : MonoBehaviour
         { redAnimator.SetBool("Dead", true); }
         else if (AgentType == _yellowAgentType)
         { yellowAnimator.SetBool("Dead", true); }
-    }   
+    }
+
+    public void WinAnimation(string[] WhoWon)
+    {
+        if (WhoWon[1] == "first")
+        {
+            switch (WhoWon[0])
+            {
+                case "red": redAnimator.SetBool("Won", true); break;
+                case "blue": blueAnimator.SetBool("Won", true); break;
+                case "yellow": yellowAnimator.SetBool("Won", true); break;
+            }
+        }
+    }
+
+    public void DisableAnimators(string[] WhoWon)
+    {
+        redAnimator.enabled = false;
+        blueAnimator.enabled = false;
+        yellowAnimator.enabled = false;
+
+        redAnimator.enabled = true;
+        blueAnimator.enabled = true;
+        yellowAnimator.enabled = true;
+
+        redAnimator.Play("idle", 1);
+        blueAnimator.Play("idle", 1);
+        yellowAnimator.Play("idle", 1);
+
+    }
 }

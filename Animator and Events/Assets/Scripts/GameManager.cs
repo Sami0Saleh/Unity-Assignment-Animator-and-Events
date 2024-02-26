@@ -19,8 +19,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform BluePlayer;
     [SerializeField] Transform YellowPlayer;
 
-    private float YellowX, BlueX, RedX;
+    
+    private float YellowZ, BlueZ, RedZ;
     private string winning;
+    private bool gameEnded = false;
     
     void Start()
     {
@@ -54,29 +56,29 @@ public class GameManager : MonoBehaviour
 
     public void WhosLeading()
     {
-        YellowX = YellowPlayer.position.x;
-        BlueX = BluePlayer.position.x;
-        RedX = RedPlayer.position.x;
+        YellowZ = YellowPlayer.position.z;
+        BlueZ = BluePlayer.position.z;
+        RedZ = RedPlayer.position.z;
 
-        if (YellowX < BlueX && YellowX < RedX)
+        if (YellowZ < BlueZ && YellowZ < RedZ)
         {
             winning = "yellow";
             Place.color = Color.yellow; Place.text = "Yellow In The Lead"; return;
             
         }
-        else if (YellowX < BlueX && YellowX > RedX)
+        else if (YellowZ < BlueZ && YellowZ > RedZ)
         {
             winning = "blue";
             Place.color = Color.blue; Place.text = "Blue In The Lead"; return;
         }
-        else if (YellowX > BlueX && YellowX < RedX)
+        else if (YellowZ > BlueZ && YellowZ < RedZ)
         {
             winning = "red";
             Place.color = Color.red; Place.text = "Red In The Lead"; return;
         }
-        else if (YellowX > BlueX && YellowX > RedX)
+        else if (YellowZ > BlueZ && YellowZ > RedZ)
         {
-            if (BlueX < RedX) { winning = "blue"; Place.color = Color.blue; Place.text = "Blue In The Lead"; return; }
+            if (BlueZ < RedZ) { winning = "blue"; Place.color = Color.blue; Place.text = "Blue In The Lead"; return; }
             else { winning = "red"; Place.color = Color.red; Place.text = "Red In The Lead"; return; }
         }
 
@@ -84,7 +86,10 @@ public class GameManager : MonoBehaviour
 
     public void WhoWon(string[] whoWon)
     {
-        winning = whoWon[0];
+        
+            winning = whoWon[0];
+        if (!gameEnded)
+        {
             switch (winning)
             {
                 case "red": { WhoWonText.color = Color.red; break; }
@@ -92,8 +97,13 @@ public class GameManager : MonoBehaviour
                 case "yellow": { WhoWonText.color = Color.yellow; break; }
                 default: break;
             }
-            EndGame();
             WhoWonText.text = $"{winning} Won";
+        }
+            EndGame();
+            
+            gameEnded = true;
+        
+
     }
 
         
