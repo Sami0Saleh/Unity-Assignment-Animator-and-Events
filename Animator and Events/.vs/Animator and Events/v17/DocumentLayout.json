@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|c:\\users\\samis\\onedrive\\desktop\\unity-assignment-animator-and-events\\animator and events\\assets\\scripts\\aicontroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\aicontroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|c:\\users\\samis\\onedrive\\desktop\\unity-assignment-animator-and-events\\animator and events\\assets\\scripts\\cameramanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\cameramanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\assets\\scripts\\animationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\animationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|c:\\users\\samis\\onedrive\\desktop\\unity-assignment-animator-and-events\\animator and events\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\assets\\scripts\\eventmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\eventmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\assets\\scripts\\navmeshobstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\navmeshobstacle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\assets\\scripts\\animationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\animationmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|c:\\users\\samis\\onedrive\\desktop\\unity-assignment-animator-and-events\\animator and events\\assets\\scripts\\aicontroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A23A9CE0-B650-DE82-DA27-1888A0DED388}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\aicontroll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,19 +30,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NavMeshObstacle.cs",
-              "DocumentMoniker": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\Assets\\Scripts\\NavMeshObstacle.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\NavMeshObstacle.cs",
-              "ToolTip": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\Assets\\Scripts\\NavMeshObstacle.cs",
-              "RelativeToolTip": "Assets\\Scripts\\NavMeshObstacle.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "DocumentIndex": 0,
+              "Title": "CameraManager.cs",
+              "DocumentMoniker": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\Assets\\Scripts\\CameraManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\CameraManager.cs",
+              "ToolTip": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\Assets\\Scripts\\CameraManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\CameraManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-24T09:52:23.643Z"
+              "WhenOpened": "2024-02-26T13:53:02.548Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-26T13:47:26.643Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -48,33 +66,33 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\EventManager.cs",
               "ToolTip": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\Assets\\Scripts\\EventManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\EventManager.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAqwD4AAAAsAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-24T09:52:22.239Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "AiControll.cs",
               "DocumentMoniker": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\Assets\\Scripts\\AiControll.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AiControll.cs",
               "ToolTip": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\Assets\\Scripts\\AiControll.cs",
               "RelativeToolTip": "Assets\\Scripts\\AiControll.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAuwDkAAAAMAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-24T09:52:22.318Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "AnimationManager.cs",
               "DocumentMoniker": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\Assets\\Scripts\\AnimationManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\AnimationManager.cs",
               "ToolTip": "C:\\Users\\samis\\OneDrive\\Desktop\\Unity-Assignment-Animator-and-Events\\Animator and Events\\Assets\\Scripts\\AnimationManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\AnimationManager.cs",
-              "ViewState": "AQIAAC4AAAAAAAAAAAAkwCgAAAAsAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-24T09:52:22.32Z",
               "EditorCaption": ""

@@ -11,17 +11,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 48f58210f6d08f74cae5dd54ab3761b3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 45.76
+      value: 47.396854
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48f58210f6d08f74cae5dd54ab3761b3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.07
+      value: 0.1000011
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48f58210f6d08f74cae5dd54ab3761b3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.93
+      value: 0.97
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 48f58210f6d08f74cae5dd54ab3761b3,
         type: 3}
@@ -61,7 +61,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 48f58210f6d08f74cae5dd54ab3761b3,
         type: 3}
       propertyPath: m_Name
-      value: Animation So
+      value: Blue Pro
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48f58210f6d08f74cae5dd54ab3761b3,
+        type: 3}
+      propertyPath: m_TagString
+      value: blue
       objectReference: {fileID: 0}
     - target: {fileID: 3853268898807207900, guid: 48f58210f6d08f74cae5dd54ab3761b3,
         type: 3}
@@ -131,6 +136,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 3981801222477175559}
   Target: {fileID: 0}
+  FirstPlaceTransform: {fileID: 0}
+  SecondPlaceTransform: {fileID: 0}
+  ThirdPlaceTransform: {fileID: 0}
 --- !u!195 &3981801222477175559
 NavMeshAgent:
   m_ObjectHideFlags: 0

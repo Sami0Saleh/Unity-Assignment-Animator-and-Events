@@ -13,15 +13,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Pro
       objectReference: {fileID: 0}
+    - target: {fileID: 1421918455119744851, guid: fad322235d344474dac89a2b38fa7b23,
+        type: 3}
+      propertyPath: m_TagString
+      value: red
+      objectReference: {fileID: 0}
     - target: {fileID: 1797072460744250857, guid: fad322235d344474dac89a2b38fa7b23,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 47.326855
       objectReference: {fileID: 0}
     - target: {fileID: 1797072460744250857, guid: fad322235d344474dac89a2b38fa7b23,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.1000011
       objectReference: {fileID: 0}
     - target: {fileID: 1797072460744250857, guid: fad322235d344474dac89a2b38fa7b23,
         type: 3}

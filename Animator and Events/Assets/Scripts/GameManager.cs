@@ -19,7 +19,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] Transform BluePlayer;
     [SerializeField] Transform YellowPlayer;
 
-    
     private float YellowZ, BlueZ, RedZ;
     private string winning;
     private bool gameEnded = false;
@@ -34,7 +33,6 @@ public class GameManager : MonoBehaviour
         EventManager.WhosLeading += WhosLeading;
         EventManager.WhoWon += WhoWon;
     }
-
     public void StartGame()
     {
         Time.timeScale = 1;
@@ -42,18 +40,12 @@ public class GameManager : MonoBehaviour
         EndCanvas.enabled = false;
         InGameCanvas.enabled = true;
     }
-
-    public void RestartGame()
-    {
-        SceneManager.LoadScene("GamePlay");
-    }
     public void EndGame()
     {
         InGameCanvas.enabled = false;
         EndCanvas.enabled = true;
        
     }
-
     public void WhosLeading()
     {
         YellowZ = YellowPlayer.position.z;
@@ -66,12 +58,12 @@ public class GameManager : MonoBehaviour
             Place.color = Color.yellow; Place.text = "Yellow In The Lead"; return;
             
         }
-        else if (YellowZ > BlueZ && YellowZ > RedZ)
+        else if (YellowZ < BlueZ && YellowZ > RedZ)
         {
             winning = "blue";
             Place.color = Color.blue; Place.text = "Blue In The Lead"; return;
         }
-        else if (YellowZ < BlueZ && YellowZ > RedZ)
+        else if (YellowZ > BlueZ && YellowZ < RedZ)
         {
             winning = "red";
             Place.color = Color.red; Place.text = "Red In The Lead"; return;

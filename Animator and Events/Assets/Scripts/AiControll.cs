@@ -20,8 +20,6 @@ public class AiControll : MonoBehaviour
     [SerializeField] private Transform ThirdPlaceTransform;
 
     // Private Variables
-    private float jumpHeight = 2.0f;
-    private float jumpDuration = 1f;
     private bool podiumSet = false;
 
     private string AgentType;
@@ -38,7 +36,7 @@ public class AiControll : MonoBehaviour
         { AgentType = "yellow"; }
 
         // subscribing to events
-        EventManager.JumpEvent += StartJump;
+        
         EventManager.SteepWalkEvent += StartSteep;
         EventManager.StopSteepWalkEvent += StopSteep;
         EventManager.DeathEvent += Death;
@@ -48,13 +46,6 @@ public class AiControll : MonoBehaviour
         // Setting NavMeshAgent Variables
         navMeshAgent.speed = 1;
         navMeshAgent.SetDestination(Target.position);    
-    }
-    public void StartJump(string agentType)
-    {
-        if (agentType == AgentType)
-        {
-            StartCoroutine(Jump());
-        }
     }
     public void StartSteep(string agentType)
     {
@@ -80,7 +71,6 @@ public class AiControll : MonoBehaviour
             navMeshAgent.acceleration = 0;
         }
     }
-
     public void SetPodium(string[] agentDetails)
     {
         if (agentDetails[0] == AgentType && !podiumSet)
@@ -97,25 +87,5 @@ public class AiControll : MonoBehaviour
             
         }
     }
-    IEnumerator Jump()
-    {
-        OffMeshLinkData data = navMeshAgent.currentOffMeshLinkData;
-        Vector3 startPos = navMeshAgent.transform.position;
-        Vector3 endPos = data.endPos;
-
-        float timeElapsed = 0f;
-
-        while (timeElapsed < jumpDuration)
-        {
-            float t = timeElapsed / jumpDuration;
-            float yOffset = jumpHeight * 4.0f * (t - t * t);
-            navMeshAgent.transform.position = Vector3.Lerp(startPos, endPos, t) + yOffset * Vector3.up;
-            timeElapsed += Time.deltaTime;
-            yield return null;
-        }
-        navMeshAgent.transform.position = endPos;
-        navMeshAgent.CompleteOffMeshLink();
-    }
-
 }
 
